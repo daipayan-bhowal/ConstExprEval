@@ -1355,7 +1355,10 @@ int expression(char *arr)
     int i;
     int expr_ret;
     //char arr[] = "a=b+++--c*c%99";
-    struct ListNode **single_ptr = (struct ListNode **) malloc(sizeof(struct ListNode **)); 
+    struct ListNode **single_ptr = (struct ListNode **) malloc(sizeof(struct ListNode **));
+#ifdef _MSC_VER 
+    *single_ptr = NULL;
+#endif
     for( i=0; i< strlen(arr); )
     {
         insert(arr+i,&i, single_ptr); // we are passing i for jumping for double ot more digit constant or multi-chaacter variables
